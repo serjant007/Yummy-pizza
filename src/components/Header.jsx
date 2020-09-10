@@ -3,27 +3,14 @@ import logo from '../assets/img/pizza-logo.svg';
 import Button from './Button';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
 
 function Header() {
     const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
 
-    const fetchPizzas = () => {
-        axios.get(`https://yummy-pizza-2673c.web.app/db.json/pizzas`).then(({ data }) => {
-            console.log(data);
-        });
-    };
-
-    // .get(
-    //     `/pizzas?${category !== null ? `category=${category}` : ''}&_sort=${
-    //         sortBy.type
-    //     }&_order=${sortBy.order}`,
-    // )
-
     return (
         <div className="header">
             <div className="container">
-                <Link to="/" onClick={fetchPizzas}>
+                <Link to="/">
                     <div className="header__logo">
                         <img width="38" src={logo} alt="Pizza logo" />
                         <div>
